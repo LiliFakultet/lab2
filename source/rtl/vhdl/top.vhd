@@ -23,6 +23,8 @@ entity top is
   port (
     clk_i          : in  std_logic;
     reset_n_i      : in  std_logic;
+	 direct_mode_i  : in  std_logic;
+	 display_mode_i : in  std_logic_vector(1 downto 0);
     -- vga
     vga_hsync_o    : out std_logic;
     vga_vsync_o    : out std_logic;
@@ -120,6 +122,16 @@ architecture rtl of top is
     S           : in  std_ulogic := 'L'
   );
   end component;
+  
+  	COMPONENT colorbar_driver
+	PORT(
+		row_i : IN std_logic_vector(10 downto 0);
+		column_i : IN std_logic_vector(10 downto 0);          
+		red_o : OUT std_logic_vector(7 downto 0);
+		green_o : OUT std_logic_vector(7 downto 0);
+		blue_o : OUT std_logic_vector(7 downto 0)
+		);
+	END COMPONENT;
   
   
   constant update_period     : std_logic_vector(31 downto 0) := conv_std_logic_vector(1, 32);
@@ -250,11 +262,19 @@ begin
   --dir_red
   --dir_green
   --dir_blue
+  	Inst_colorbar_driver: colorbar_driver PORT MAP(
+		row_i => dir_pixel_row,
+		column_i => dir_pixel_column,
+		red_o => dir_red,
+		green_o => dir_green,
+		blue_o => dir_blue
+	);
  
   -- koristeci signale realizovati logiku koja pise po TXT_MEM
   --char_address
   --char_value
   --char_we
+  
   
   -- koristeci signale realizovati logiku koja pise po GRAPH_MEM
   --pixel_address
