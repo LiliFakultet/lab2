@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: top.prj
 
@@ -372,23 +372,31 @@ Unit <text_driver> synthesized.
 
 Synthesizing Unit <pixel_driver>.
     Related source file is "D:\RA31-2016\LPRS2\lab2\synthesis\lab2\pixel_driver.vhd".
+    Found 1-bit register for signal <move>.
+    Found 1-bit register for signal <direction>.
+    Found 5-bit register for signal <origin>.
+    Found 9-bit register for signal <row>.
     Found 5-bit register for signal <column>.
     Found 32-bit register for signal <value>.
     Found 20-bit register for signal <address>.
-    Found 9-bit register for signal <row>.
-    Found 20-bit adder for signal <GND_92_o_GND_92_o_add_1_OUT> created at line 29.
-    Found 5-bit adder for signal <column[4]_GND_92_o_add_7_OUT> created at line 38.
-    Found 9-bit adder for signal <row[8]_GND_92_o_add_9_OUT> created at line 42.
-    Found 5x9-bit multiplier for signal <PWR_25_o_row[8]_MuLt_0_OUT> created at line 29.
-    Found 9-bit comparator greater for signal <GND_92_o_row[8]_LessThan_3_o> created at line 31
-    Found 9-bit comparator greater for signal <row[8]_PWR_25_o_LessThan_4_o> created at line 31
-    Found 5-bit comparator greater for signal <column[4]_PWR_25_o_LessThan_7_o> created at line 37
-    Found 9-bit comparator greater for signal <row[8]_PWR_25_o_LessThan_9_o> created at line 41
+    Found 26-bit register for signal <move_counter>.
+    Found 26-bit adder for signal <move_counter[25]_GND_92_o_add_1_OUT> created at line 37.
+    Found 5-bit adder for signal <origin[4]_GND_92_o_add_6_OUT> created at line 55.
+    Found 20-bit adder for signal <GND_92_o_GND_92_o_add_16_OUT> created at line 76.
+    Found 5-bit adder for signal <column[4]_GND_92_o_add_22_OUT> created at line 85.
+    Found 9-bit adder for signal <row[8]_GND_92_o_add_24_OUT> created at line 89.
+    Found 5-bit subtractor for signal <GND_92_o_GND_92_o_sub_10_OUT<4:0>> created at line 61.
+    Found 5x9-bit multiplier for signal <PWR_25_o_row[8]_MuLt_15_OUT> created at line 76.
+    Found 9-bit comparator greater for signal <GND_92_o_row[8]_LessThan_18_o> created at line 78
+    Found 9-bit comparator greater for signal <row[8]_PWR_25_o_LessThan_19_o> created at line 78
+    Found 5-bit comparator equal for signal <column[4]_origin[4]_equal_20_o> created at line 78
+    Found 5-bit comparator greater for signal <column[4]_PWR_25_o_LessThan_22_o> created at line 84
+    Found 9-bit comparator greater for signal <row[8]_PWR_25_o_LessThan_24_o> created at line 88
     Summary:
 	inferred   1 Multiplier(s).
-	inferred   3 Adder/Subtractor(s).
-	inferred  66 D-type flip-flop(s).
-	inferred   4 Comparator(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred  99 D-type flip-flop(s).
+	inferred   5 Comparator(s).
 	inferred   1 Multiplexer(s).
 Unit <pixel_driver> synthesized.
 
@@ -402,26 +410,27 @@ Macro Statistics
 # Multipliers                                          : 3
  11x11-bit multiplier                                  : 2
  9x5-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 14
+# Adders/Subtractors                                   : 16
  11-bit adder                                          : 2
  14-bit adder                                          : 6
  20-bit adder                                          : 1
  22-bit adder                                          : 2
- 26-bit adder                                          : 1
+ 26-bit adder                                          : 2
  5-bit adder                                           : 1
+ 5-bit addsub                                          : 1
  9-bit adder                                           : 1
-# Registers                                            : 29
- 1-bit register                                        : 14
+# Registers                                            : 33
+ 1-bit register                                        : 16
  11-bit register                                       : 2
  14-bit register                                       : 2
  20-bit register                                       : 1
- 26-bit register                                       : 1
+ 26-bit register                                       : 2
  32-bit register                                       : 2
- 5-bit register                                        : 1
+ 5-bit register                                        : 2
  6-bit register                                        : 2
  8-bit register                                        : 3
  9-bit register                                        : 1
-# Comparators                                          : 34
+# Comparators                                          : 35
  11-bit comparator greater                             : 11
  11-bit comparator lessequal                           : 2
  12-bit comparator greater                             : 3
@@ -430,6 +439,7 @@ Macro Statistics
  14-bit comparator greater                             : 1
  14-bit comparator lessequal                           : 1
  31-bit comparator greater                             : 4
+ 5-bit comparator equal                                : 1
  5-bit comparator greater                              : 1
  9-bit comparator greater                              : 3
 # Multiplexers                                         : 21
@@ -491,9 +501,11 @@ INFO:Xst:3226 - The RAM <Mram_graphics_mem> will be implemented as a BLOCK RAM, 
 Unit <graphics_mem> synthesized (advanced).
 
 Synthesizing (advanced) Unit <pixel_driver>.
+The following registers are absorbed into counter <origin>: 1 register on signal <origin>.
 The following registers are absorbed into counter <column>: 1 register on signal <column>.
+The following registers are absorbed into counter <move_counter>: 1 register on signal <move_counter>.
 The following registers are absorbed into counter <row>: 1 register on signal <row>.
-	Multiplier <Mmult_PWR_25_o_row[8]_MuLt_0_OUT> in block <pixel_driver> and adder/subtractor <Madd_GND_92_o_GND_92_o_add_1_OUT> in block <pixel_driver> are combined into a MAC<Maddsub_PWR_25_o_row[8]_MuLt_0_OUT>.
+	Multiplier <Mmult_PWR_25_o_row[8]_MuLt_15_OUT> in block <pixel_driver> and adder/subtractor <Madd_GND_92_o_GND_92_o_add_16_OUT> in block <pixel_driver> are combined into a MAC<Maddsub_PWR_25_o_row[8]_MuLt_15_OUT>.
 	The following registers are also absorbed by the MAC: <address> in block <pixel_driver>.
 Unit <pixel_driver> synthesized (advanced).
 
@@ -552,15 +564,16 @@ Macro Statistics
  9x5-to-20-bit MAC                                     : 1
 # Adders/Subtractors                                   : 5
  14-bit adder                                          : 5
-# Counters                                             : 7
+# Counters                                             : 9
  11-bit up counter                                     : 2
  14-bit up counter                                     : 2
- 26-bit up counter                                     : 1
+ 26-bit up counter                                     : 2
  5-bit up counter                                      : 1
+ 5-bit updown counter                                  : 1
  9-bit up counter                                      : 1
-# Registers                                            : 76
- Flip-Flops                                            : 76
-# Comparators                                          : 34
+# Registers                                            : 78
+ Flip-Flops                                            : 78
+# Comparators                                          : 35
  11-bit comparator greater                             : 11
  11-bit comparator lessequal                           : 2
  12-bit comparator greater                             : 3
@@ -569,6 +582,7 @@ Macro Statistics
  14-bit comparator greater                             : 1
  14-bit comparator lessequal                           : 1
  31-bit comparator greater                             : 4
+ 5-bit comparator equal                                : 1
  5-bit comparator greater                              : 1
  9-bit comparator greater                              : 3
 # Multiplexers                                         : 20
@@ -636,15 +650,42 @@ INFO:Xst:2399 - RAMs <vga_top_i/graphics_mem_i/Mram_graphics_mem32>, <vga_top_i/
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/base_11> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/base_12> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/base_13> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <Inst_text_driver/shift_counter_23> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/shift_counter_22> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Inst_text_driver/shift_counter_23> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/shift_counter_24> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/shift_counter_25> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/address_11> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/address_12> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <Inst_text_driver/address_13> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Inst_pixel_driver/move_counter_22> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Inst_pixel_driver/move_counter_23> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Inst_pixel_driver/move_counter_24> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Inst_pixel_driver/move_counter_25> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <vga_top_i/vga_i/vga_sync_i/h_count_r_10> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <vga_top_i/vga_i/vga_sync_i/v_count_r_10> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_10> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_10> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_11> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_11> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_12> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_12> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_13> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_13> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_14> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_14> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_15> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_15> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_20> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_20> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_16> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_16> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_21> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_21> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_17> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_17> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_18> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_18> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_19> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_19> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_0> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_0> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_1> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_1> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_2> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_2> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_3> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_3> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_4> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_4> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_5> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_5> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_6> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_6> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_7> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_7> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_8> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_8> 
+INFO:Xst:2261 - The FF/Latch <Inst_text_driver/shift_counter_9> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Inst_pixel_driver/move_counter_9> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -656,8 +697,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 101
- Flip-Flops                                            : 101
+# Registers                                            : 107
+ Flip-Flops                                            : 107
 
 =========================================================================
 
@@ -680,22 +721,22 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 522
+# BELS                             : 534
 #      GND                         : 2
-#      INV                         : 16
+#      INV                         : 17
 #      LUT1                        : 104
-#      LUT2                        : 8
-#      LUT3                        : 18
-#      LUT4                        : 19
-#      LUT5                        : 14
-#      LUT6                        : 65
+#      LUT2                        : 9
+#      LUT3                        : 19
+#      LUT4                        : 24
+#      LUT5                        : 16
+#      LUT6                        : 67
 #      MUXCY                       : 144
 #      VCC                         : 2
 #      XORCY                       : 130
-# FlipFlops/Latches                : 102
+# FlipFlops/Latches                : 108
 #      FD                          : 1
-#      FDR                         : 66
-#      FDRE                        : 32
+#      FDR                         : 67
+#      FDRE                        : 37
 #      FDS                         : 1
 #      FDSE                        : 1
 #      ODDR2                       : 1
@@ -721,18 +762,18 @@ Selected Device : 6slx45fgg676-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             102  out of  54576     0%  
- Number of Slice LUTs:                  245  out of  27288     0%  
-    Number used as Logic:               244  out of  27288     0%  
+ Number of Slice Registers:             108  out of  54576     0%  
+ Number of Slice LUTs:                  257  out of  27288     0%  
+    Number used as Logic:               256  out of  27288     0%  
     Number used as Memory:                1  out of   6408     0%  
        Number used as SRL:                1
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    282
-   Number with an unused Flip Flop:     180  out of    282    63%  
-   Number with an unused LUT:            37  out of    282    13%  
-   Number of fully used LUT-FF pairs:    65  out of    282    23%  
-   Number of unique control sets:        14
+ Number of LUT Flip Flop pairs used:    294
+   Number with an unused Flip Flop:     186  out of    294    63%  
+   Number with an unused LUT:            37  out of    294    12%  
+   Number of fully used LUT-FF pairs:    71  out of    294    24%  
+   Number of unique control sets:        16
 
 IO Utilization: 
  Number of IOs:                          35
@@ -765,7 +806,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk_i                              | DCM_SP:CLKFX           | 112   |
+clk_i                              | DCM_SP:CLKFX           | 118   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -777,7 +818,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 9.513ns (Maximum Frequency: 105.120MHz)
-   Minimum input arrival time before clock: 4.284ns
+   Minimum input arrival time before clock: 4.350ns
    Maximum output required time after clock: 4.618ns
    Maximum combinational path delay: No path found
 
@@ -788,7 +829,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_i'
   Clock period: 9.513ns (frequency: 105.120MHz)
-  Total number of paths / destination ports: 7931 / 369
+  Total number of paths / destination ports: 8029 / 381
 -------------------------------------------------------------------------
 Delay:               10.274ns (Levels of Logic = 3)
   Source:            vga_top_i/vga_i/vga_sync_i/v_count_r_8 (FF)
@@ -811,23 +852,23 @@ Delay:               10.274ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_i'
-  Total number of paths / destination ports: 69 / 69
+  Total number of paths / destination ports: 76 / 76
 -------------------------------------------------------------------------
-Offset:              4.284ns (Levels of Logic = 2)
+Offset:              4.350ns (Levels of Logic = 2)
   Source:            reset_n_i (PAD)
-  Destination:       Inst_text_driver/shift_counter_2 (FF)
+  Destination:       Inst_text_driver/shift_counter_0 (FF)
   Destination Clock: clk_i rising 0.9X
 
-  Data Path: reset_n_i to Inst_text_driver/shift_counter_2
+  Data Path: reset_n_i to Inst_text_driver/shift_counter_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   1.328   0.910  reset_n_i_IBUF (reset_n_i_IBUF)
+     IBUF:I->O             9   1.328   0.976  reset_n_i_IBUF (reset_n_i_IBUF)
      LUT5:I4->O           22   0.254   1.333  Inst_text_driver/Mcount_shift_counter_val261 (Inst_text_driver/Mcount_shift_counter_val)
      FDR:R                     0.459          Inst_text_driver/shift_counter_0
     ----------------------------------------
-    Total                      4.284ns (2.041ns logic, 2.243ns route)
-                                       (47.6% logic, 52.4% route)
+    Total                      4.350ns (2.041ns logic, 2.309ns route)
+                                       (46.9% logic, 53.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_i'
@@ -864,14 +905,14 @@ clk_i          |   10.274|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.75 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.48 secs
  
 --> 
 
-Total memory usage is 282800 kilobytes
+Total memory usage is 283376 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   26 (   0 filtered)
-Number of infos    :   56 (   0 filtered)
+Number of warnings :   30 (   0 filtered)
+Number of infos    :   79 (   0 filtered)
 
