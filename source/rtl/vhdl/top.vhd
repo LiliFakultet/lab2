@@ -142,6 +142,16 @@ architecture rtl of top is
 		char_we_o : OUT std_logic
 		);
 	END COMPONENT;
+	
+	COMPONENT pixel_driver
+	PORT(
+		clk_i : IN std_logic;
+		reset_n_i : IN std_logic;          
+		pixel_we_o : OUT std_logic;
+		pixel_value_o : OUT std_logic_vector(31 downto 0);
+		pixel_address_o : OUT std_logic_vector(19 downto 0)
+		);
+	END COMPONENT;
   
   
   constant update_period     : std_logic_vector(31 downto 0) := conv_std_logic_vector(1, 32);
@@ -191,7 +201,7 @@ begin
   
   -- removed to inputs pin
   direct_mode <= '0';
-  display_mode     <= "01";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
+  display_mode     <= "10";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
   
   font_size        <= x"1";
   show_frame       <= '1';
@@ -297,6 +307,13 @@ begin
   --pixel_address
   --pixel_value
   --pixel_we
-  
+
+  	Inst_pixel_driver: pixel_driver PORT MAP(
+		clk_i => pix_clock_s,
+		reset_n_i => reset_n_i,
+		pixel_we_o => pixel_we,
+		pixel_value_o => pixel_value,
+		pixel_address_o => pixel_address
+	);
   
 end rtl;

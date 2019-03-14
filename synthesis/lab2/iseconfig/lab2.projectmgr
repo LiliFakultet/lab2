@@ -7,7 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
-         <ClosedNode>/top - rtl D:|RA31-2016|LPRS2|lab2|source|rtl|vhdl|top.vhd/vga_top_i - vga_top - rtl/vga_i - vga - rtl</ClosedNode>
+         <ClosedNode>/top - rtl D:|RA31-2016|LPRS2|lab2|source|rtl|vhdl|top.vhd/vga_top_i - vga_top - rtl/char_rom_i - char_rom - Behavioral</ClosedNode>
          <ClosedNode>/top - rtl ||samba03|nastavni_materijali|lprs2|vezbe|lab2|HDL|source|rtl|vhdl|top.vhd/vga_top_i - vga_top - rtl/char_rom_i - char_rom - Behavioral</ClosedNode>
          <ClosedNode>/top - rtl ||samba03|nastavni_materijali|lprs2|vezbe|lab2|HDL|source|rtl|vhdl|top.vhd/vga_top_i - vga_top - rtl/vga_i - vga - rtl</ClosedNode>
       </ClosedNodes>
@@ -69,13 +69,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Generate Programming File</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001a7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001a70000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Generate Programming File</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
