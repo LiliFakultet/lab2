@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: top.prj
 
@@ -389,8 +389,8 @@ Synthesizing Unit <pixel_driver>.
     Found 9-bit adder for signal <row[8]_GND_92_o_add_24_OUT> created at line 89.
     Found 5-bit subtractor for signal <GND_92_o_GND_92_o_sub_10_OUT<4:0>> created at line 61.
     Found 5x9-bit multiplier for signal <PWR_25_o_row[8]_MuLt_15_OUT> created at line 76.
-    Found 9-bit comparator greater for signal <GND_92_o_row[8]_LessThan_18_o> created at line 78
-    Found 9-bit comparator greater for signal <row[8]_PWR_25_o_LessThan_19_o> created at line 78
+    Found 9-bit comparator lessequal for signal <n0026> created at line 78
+    Found 9-bit comparator lessequal for signal <n0028> created at line 78
     Found 5-bit comparator equal for signal <column[4]_origin[4]_equal_20_o> created at line 78
     Found 5-bit comparator greater for signal <column[4]_PWR_25_o_LessThan_22_o> created at line 84
     Found 9-bit comparator greater for signal <row[8]_PWR_25_o_LessThan_24_o> created at line 88
@@ -445,7 +445,8 @@ Macro Statistics
  31-bit comparator greater                             : 4
  5-bit comparator equal                                : 1
  5-bit comparator greater                              : 1
- 9-bit comparator greater                              : 3
+ 9-bit comparator greater                              : 1
+ 9-bit comparator lessequal                            : 2
 # Multiplexers                                         : 25
  1-bit 2-to-1 multiplexer                              : 5
  1-bit 3-to-1 multiplexer                              : 1
@@ -580,7 +581,8 @@ Macro Statistics
  31-bit comparator greater                             : 4
  5-bit comparator equal                                : 1
  5-bit comparator greater                              : 1
- 9-bit comparator greater                              : 3
+ 9-bit comparator greater                              : 1
+ 9-bit comparator lessequal                            : 2
 # Multiplexers                                         : 24
  1-bit 2-to-1 multiplexer                              : 5
  1-bit 3-to-1 multiplexer                              : 1
@@ -715,15 +717,15 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 543
+# BELS                             : 542
 #      GND                         : 2
 #      INV                         : 17
 #      LUT1                        : 104
-#      LUT2                        : 9
+#      LUT2                        : 8
 #      LUT3                        : 19
-#      LUT4                        : 27
+#      LUT4                        : 26
 #      LUT5                        : 17
-#      LUT6                        : 71
+#      LUT6                        : 72
 #      MUXCY                       : 144
 #      MUXF7                       : 1
 #      VCC                         : 2
@@ -759,16 +761,16 @@ Selected Device : 6slx45fgg676-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:             110  out of  54576     0%  
- Number of Slice LUTs:                  265  out of  27288     0%  
-    Number used as Logic:               264  out of  27288     0%  
+ Number of Slice LUTs:                  264  out of  27288     0%  
+    Number used as Logic:               263  out of  27288     0%  
     Number used as Memory:                1  out of   6408     0%  
        Number used as SRL:                1
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    302
-   Number with an unused Flip Flop:     192  out of    302    63%  
-   Number with an unused LUT:            37  out of    302    12%  
-   Number of fully used LUT-FF pairs:    73  out of    302    24%  
+ Number of LUT Flip Flop pairs used:    301
+   Number with an unused Flip Flop:     191  out of    301    63%  
+   Number with an unused LUT:            37  out of    301    12%  
+   Number of fully used LUT-FF pairs:    73  out of    301    24%  
    Number of unique control sets:        17
 
 IO Utilization: 
@@ -830,7 +832,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_i'
   Clock period: 9.513ns (frequency: 105.120MHz)
-  Total number of paths / destination ports: 8082 / 384
+  Total number of paths / destination ports: 8083 / 384
 -------------------------------------------------------------------------
 Delay:               10.274ns (Levels of Logic = 3)
   Source:            vga_top_i/vga_i/vga_sync_i/v_count_r_8 (FF)
@@ -936,11 +938,11 @@ clk_i          |         |         |    4.563|         |
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.70 secs
+Total CPU time to Xst completion: 7.72 secs
  
 --> 
 
-Total memory usage is 283824 kilobytes
+Total memory usage is 283120 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   28 (   0 filtered)
